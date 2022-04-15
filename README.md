@@ -1,3 +1,10 @@
+# use-smooth-count
+
+A simple react hook to animate your statistics.
+
+
+
+
 # TSDX React User Guide
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
