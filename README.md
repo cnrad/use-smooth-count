@@ -1,9 +1,15 @@
-# use-smooth-count
+# use-smooth-count (W.I.P)
+__A simple react hook to animate your statistics.__
 
-A simple react hook to animate your statistics.
+## Features
+
+- 📦 Tiny: use-smooth-count is less than ___ when minified 
+- 👨‍💻 Developer friendly: Helpful development messages that are stripped away in production
+- ⌨️ Strongly typed: use-smooth-count uses TypeScript to ensure good practices, and eliminate any sneaky bugs
 
 
 
+#### ignore the rest for now
 
 # TSDX React User Guide
 
