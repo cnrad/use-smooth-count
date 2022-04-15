@@ -1,64 +1,66 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "quoteProps": "consistent",
-    "printWidth": 120,
-    "bracketSpacing": true,
-    "singleQuote": false,
-    "useTabs": false,
-    "arrowParens": "avoid",
-    "tabWidth": 4
-  },
-  "name": "use-smooth-count",
-  "author": "cnrad",
-  "module": "dist/use-smooth-count.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/use-smooth-count.cjs.production.min.js",
-      "limit": "10 KB"
+    "name": "use-smooth-count",
+    "description": "Easily interpolate to a provided value with a React hook.",
+    "author": "Conrad Crawford <hello@cnrad.dev>",
+    "version": "0.1.0",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "repository": "git://github.com/cnrad/use-smooth-count.git",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=10"
     },
-    {
-      "path": "dist/use-smooth-count.esm.js",
-      "limit": "10 KB"
+    "scripts": {
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test --passWithNoTests",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
+    },
+    "peerDependencies": {
+        "react": ">=16"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "prettier": {
+        "quoteProps": "consistent",
+        "printWidth": 120,
+        "bracketSpacing": true,
+        "singleQuote": false,
+        "useTabs": false,
+        "arrowParens": "avoid",
+        "tabWidth": 4
+    },
+    "module": "dist/use-smooth-count.esm.js",
+    "size-limit": [
+        {
+            "path": "dist/use-smooth-count.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/use-smooth-count.esm.js",
+            "limit": "10 KB"
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
+        "@types/react": "^18.0.3",
+        "@types/react-dom": "^18.0.0",
+        "husky": "^7.0.4",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "size-limit": "^7.0.8",
+        "tsdx": "^0.14.1",
+        "tslib": "^2.3.1",
+        "typescript": "^4.6.3"
     }
-  ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "@types/react": "^18.0.3",
-    "@types/react-dom": "^18.0.0",
-    "husky": "^7.0.4",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "size-limit": "^7.0.8",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.6.3"
-  }
 }
