@@ -4,8 +4,8 @@ import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "../src/index";
 
 const App = () => {
-    const count = useSmoothCount(12927, 3, { start: 200 });
-    const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1] });
+    const count = useSmoothCount(12927, 3);
+    const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
     const count2 = useSmoothCount(245, 3, { curve: [0, 0.75, 0.25, 1] });
 
     return (
@@ -22,6 +22,26 @@ const App = () => {
                 justifyContent: "center"
             }}
         >
+            <pre
+                style={{
+                    background: "#1b1b1b",
+                    padding: "0.5rem",
+                    fontSize: "1rem",
+                    borderRadius: "0.5rem",
+                    marginBottom: "2rem"
+                }}
+            >
+                <code
+                    className="language-js"
+                    style={{
+                        borderRadius: "0.5rem"
+                    }}
+                >
+                    {`const count = useSmoothCount(12927, 3);
+const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
+const count2 = useSmoothCount(245, 3, { curve: [0, 0.75, 0.25, 1] });`}
+                </code>
+            </pre>
             <div>
                 <span style={{ fontWeight: 600 }}>{count}</span> messages
             </div>
