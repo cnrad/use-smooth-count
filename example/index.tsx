@@ -4,9 +4,9 @@ import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "../src/index";
 
 const App = () => {
-    const count = useSmoothCount(12927, 4);
+    const count = useSmoothCount(12927, 3, { start: 200 });
     const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1] });
-    const count2 = useSmoothCount(245, 5, { curve: [0, 0.75, 0.25, 1] });
+    const count2 = useSmoothCount(245, 3, { curve: [0, 0.75, 0.25, 1] });
 
     return (
         <div

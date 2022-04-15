@@ -2,13 +2,17 @@ import { useEffect, useRef, useState } from "react";
 
 interface SmoothCountOptions {
     curve?: number[];
+    start?: number;
 }
 
 export function useSmoothCount(target: number, duration: number, options?: SmoothCountOptions): number {
     let bezier = [0, 0, 1, 1];
-    options && options.curve ? (bezier = options.curve) : null;
+    let start = 1;
 
-    const [cur, setCur] = useState(1);
+    options && options.curve ? (bezier = options.curve) : null;
+    options && options.start ? (start = options.start) : null;
+
+    const [cur, setCur] = useState(start);
     let progress = useRef(0);
 
     console.time();
@@ -23,11 +27,14 @@ export function useSmoothCount(target: number, duration: number, options?: Smoot
                 t * (bezier[3] - bezier[1]) +
                 t * (bezier[3] + t * (1 - bezier[3]) - (bezier[1] + t * (bezier[3] - bezier[1])));
 
-            if (Math.abs(cur) >= Math.abs(target) || t >= 1) console.timeEnd();
-            if (Math.abs(cur) >= Math.abs(target) || t >= 1) return clearInterval(timer);
+            if (Math.abs(cur) >= Math.abs(target) || t >= 1) {
+                console.timeEnd();
+                setCur(target);
+                return clearInterval(timer);
+            }
 
-            progress.current = t + 1 / (duration * 33); // should be 50
-            setCur((d1y + (d2y - d1y) * t) * target);
+            progress.current = t + 1 / (duration * 50); // 50 is technically correct, although the actual time varies on different devices based on specs
+            setCur(start + (d1y + (d2y - d1y) * t) * (target - start));
         }, 20);
     }, []);
 
