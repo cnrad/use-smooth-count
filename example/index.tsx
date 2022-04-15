@@ -4,9 +4,9 @@ import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "../src/index";
 
 const App = () => {
-    const count = useSmoothCount(12, 3);
-    const count1 = useSmoothCount(245, 3, [0, 0.75, 0.25, 1]);
-    const count2 = useSmoothCount(1024, 3, [0, 0.95, 0.05, 1]);
+    const count = useSmoothCount(12927, 4);
+    const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1] });
+    const count2 = useSmoothCount(245, 5, { curve: [0, 0.75, 0.25, 1] });
 
     return (
         <div
@@ -17,13 +17,20 @@ const App = () => {
                 width: "100vw",
                 height: "100vh",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center"
             }}
         >
-            {count} people... <br />
-            {count1} people... <br />
-            {count2} people...
+            <div>
+                <span style={{ fontWeight: 600 }}>{count}</span> messages
+            </div>
+            <div>
+                <span style={{ fontWeight: 600 }}>{count1}</span> users
+            </div>
+            <div>
+                <span style={{ fontWeight: 600 }}>{count2}</span> communities
+            </div>
         </div>
     );
 };
