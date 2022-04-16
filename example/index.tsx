@@ -40,9 +40,9 @@ const App = () => {
                         borderRadius: "0.5rem",
                     }}
                 >
-                    {`const count = useSmoothCount(12927, 3);
-const count1 = useSmoothCount(1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
-const count2 = useSmoothCount(245, 3, { curve: [0, 0.75, 0.25, 1] });`}
+                    {`const count1 = useSmoothCount(ref1, 12927, 3);
+const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
+const count3 = useSmoothCount(ref3, 245, 3, { curve: [0, 0.75, 0.25, 1] });`}
                 </code>
             </pre>
             <div>

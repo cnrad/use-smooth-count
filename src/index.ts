@@ -4,7 +4,8 @@ import { MutableRefObject, useEffect, useRef } from "react";
  * @param {ReactHTMLElement} ref - A ref to the element which the count will be displayed in
  * @param {number} target - The target (final) number you want to interpolate to
  * @param {number} duration - How long (in seconds) it takes to reach that number
- * @param {Object} options - The employee who is responsible for the project.
+
+ * @param {Object} options - An object to specify options
  * @param {number[]} options.curve - An array of two points to create a cubic bezier curve (x1, y2, x2, y2)
  * @param {number} options.start - A designated number to start to count from (default 0)
  */
