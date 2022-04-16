@@ -7,9 +7,9 @@ const App = () => {
     const ref2 = React.useRef<HTMLSpanElement | null>(null);
     const ref3 = React.useRef<HTMLSpanElement | null>(null);
 
-    const count1 = useSmoothCount(ref1, 12927, 3);
-    const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.75, 0.25, 1], start: 500 });
-    const count3 = useSmoothCount(ref3, 76.34, 3, { curve: [0, 0.99, 0.01, 1] });
+    const count1 = useSmoothCount({ ref: ref1, target: 12927, duration: 3 });
+    const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });
+    const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0, 0.99, 0.01, 1] });
 
     return (
         <div
@@ -40,9 +40,9 @@ const App = () => {
                         borderRadius: "0.5rem",
                     }}
                 >
-                    {`const count1 = useSmoothCount(ref1, 12927, 3);
-const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.75, 0.25, 1], start: 500 });
-const count3 = useSmoothCount(ref3, 76.34, 3, { curve: [0, 0.99, 0.01, 1] });`}
+                    {`const count1 = useSmoothCount({ ref: ref1, target: 12927, duration: 3 });
+const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });
+const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0, 0.99, 0.01, 1] });`}
                 </code>
             </pre>
             <div>

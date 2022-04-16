@@ -4,26 +4,22 @@ import { MutableRefObject, useEffect, useRef } from "react";
  * @param {ReactHTMLElement} ref - A ref to the element which the count will be displayed in
  * @param {number} target - The target (final) number you want to interpolate to
  * @param {number} duration - How long (in seconds) it takes to reach that number
-
- * @param {Object} options - An object to specify options
- * @param {number[]} options.curve - An array of two points to create a cubic bezier curve (x1, y2, x2, y2)
- * @param {number} options.start - A designated number to start to count from (default 0)
+ * @param {number[]} curve - An array of two points to create a cubic bezier curve (x1, y2, x2, y2)
+ * @param {number} start - A designated number to start to count from (default 0)
  */
 
-interface SmoothCountOptions {
-    curve?: number[];
-    start?: number;
+interface SmoothCountProps {
+    ref: MutableRefObject<any>;
+    target: number;
+    duration: number;
+    curve?: number[] | undefined;
+    startAt?: number | undefined;
 }
 
-export function useSmoothCount(
-    ref: MutableRefObject<any>,
-    target: number,
-    duration: number,
-    options?: SmoothCountOptions
-): string {
-    const bezier = options && options.curve ? options.curve : [0, 0, 1, 1];
-    const start = options && options.start ? options.start : 1;
-    const decimals = target.toString().split(".")[1]?.length || 0;
+export function useSmoothCount({ ref, target, duration, curve, startAt }: SmoothCountProps): string {
+    const bezier: number[] = curve ? curve : [0, 0, 1, 1];
+    const start: number = startAt ?? 1;
+    const decimals: number = target.toString().split(".")[1]?.length || 0;
 
     let cur = start;
     const progress = useRef(0);
