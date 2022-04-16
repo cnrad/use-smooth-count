@@ -2,7 +2,7 @@
     "name": "use-smooth-count",
     "description": "Easily interpolate to a provided value with a React hook.",
     "author": "Conrad Crawford <hello@cnrad.dev>",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
