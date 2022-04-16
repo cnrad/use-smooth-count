@@ -20,11 +20,8 @@ export function useSmoothCount(
     duration: number,
     options?: SmoothCountOptions
 ): number {
-    let bezier = [0, 0, 1, 1];
-    let start = 1;
-
-    options && options.curve ? (bezier = options.curve) : null;
-    options && options.start ? (start = options.start) : null;
+    let bezier = options && options.curve ? options.curve : [0, 0, 1, 1];
+    let start = options && options.start ? options.start : 1;
 
     let cur = start;
     const progress = useRef(0);
