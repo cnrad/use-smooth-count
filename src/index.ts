@@ -20,9 +20,10 @@ export function useSmoothCount(
     target: number,
     duration: number,
     options?: SmoothCountOptions
-): number {
-    let bezier = options && options.curve ? options.curve : [0, 0, 1, 1];
-    let start = options && options.start ? options.start : 1;
+): string {
+    const bezier = options && options.curve ? options.curve : [0, 0, 1, 1];
+    const start = options && options.start ? options.start : 1;
+    const decimals = target.toString().split(".")[1]?.length || 0;
 
     let cur = start;
     const progress = useRef(0);
@@ -39,13 +40,13 @@ export function useSmoothCount(
 
             if (Math.abs(cur) >= Math.abs(target) || t >= 1) {
                 cur = target;
-                ref.current.textContent = Math.round(cur);
+                ref.current.textContent = cur.toFixed(decimals);
                 return clearInterval(timer);
             }
 
             progress.current = t + 1 / (duration * 50); // 50 is technically correct, although the actual time varies on different devices based on specs
             cur = start + (d1y + (d2y - d1y) * t) * (target - start);
-            ref.current.textContent = Math.round(cur);
+            ref.current.textContent = cur.toFixed(decimals);
         }, 20);
 
         return () => {
@@ -53,5 +54,5 @@ export function useSmoothCount(
         };
     }, []);
 
-    return Math.round(cur);
+    return cur.toFixed(decimals);
 }

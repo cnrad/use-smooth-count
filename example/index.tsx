@@ -8,8 +8,8 @@ const App = () => {
     const ref3 = React.useRef<HTMLSpanElement | null>(null);
 
     const count1 = useSmoothCount(ref1, 12927, 3);
-    const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
-    const count3 = useSmoothCount(ref3, 245, 3, { curve: [0, 0.75, 0.25, 1] });
+    const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.75, 0.25, 1], start: 500 });
+    const count3 = useSmoothCount(ref3, 76.34, 3, { curve: [0, 0.99, 0.01, 1] });
 
     return (
         <div
@@ -41,8 +41,8 @@ const App = () => {
                     }}
                 >
                     {`const count1 = useSmoothCount(ref1, 12927, 3);
-const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.99, 0.01, 1], start: 500 });
-const count3 = useSmoothCount(ref3, 245, 3, { curve: [0, 0.75, 0.25, 1] });`}
+const count2 = useSmoothCount(ref2, 1024, 3, { curve: [0, 0.75, 0.25, 1], start: 500 });
+const count3 = useSmoothCount(ref3, 76.34, 3, { curve: [0, 0.99, 0.01, 1] });`}
                 </code>
             </pre>
             <div>
@@ -52,7 +52,7 @@ const count3 = useSmoothCount(ref3, 245, 3, { curve: [0, 0.75, 0.25, 1] });`}
                 <span style={{ fontWeight: 600 }} ref={ref2} /> users
             </div>
             <div>
-                <span style={{ fontWeight: 600 }} ref={ref3} /> communities
+                $<span style={{ fontWeight: 600 }} ref={ref3} /> dollars
             </div>
         </div>
     );
