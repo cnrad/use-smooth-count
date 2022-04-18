@@ -22,3 +22,5 @@ const Element = () => {
     return <div ref={ref} />;
 };
 ```
+
+The counter starts automatically unless you set `preventStart` to `true`, in which case you can manually call `count.start()` whenever you'd like

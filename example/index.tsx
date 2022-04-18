@@ -1,15 +1,26 @@
 import * as React from "react";
+import { useEffect } from "react";
 import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "../src/index";
 
 const App = () => {
-    const ref1 = React.useRef<HTMLSpanElement | null>(null);
+    const ref = React.useRef<HTMLSpanElement | null>(null);
     const ref2 = React.useRef<HTMLSpanElement | null>(null);
     const ref3 = React.useRef<HTMLSpanElement | null>(null);
 
-    const count1 = useSmoothCount({ ref: ref1, target: 12927, duration: 3 });
+    const count1 = useSmoothCount({ ref, target: 12927, duration: 3 });
     const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });
-    const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0, 0.99, 0.01, 1] });
+    const count3 = useSmoothCount({
+        ref: ref3,
+        target: 76.34,
+        duration: 3,
+        curve: [0, 0.99, 0.01, 1],
+        preventStart: true,
+    });
+
+    useEffect(() => {
+        setTimeout(() => count3.start(), 2000);
+    }, []);
 
     return (
         <div
@@ -46,13 +57,17 @@ const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0
                 </code>
             </pre>
             <div>
-                <span style={{ fontWeight: 600 }} ref={ref1} /> messages
+                <span style={{ fontWeight: 600 }} ref={ref} /> messages
             </div>
             <div>
                 <span style={{ fontWeight: 600 }} ref={ref2} /> users
             </div>
             <div>
-                $<span style={{ fontWeight: 600 }} ref={ref3} /> dollars
+                $
+                <span style={{ fontWeight: 600 }} ref={ref3}>
+                    0
+                </span>{" "}
+                dollars
             </div>
         </div>
     );
