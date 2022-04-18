@@ -34,14 +34,11 @@ export function useSmoothCount({
     const progress = useRef(0);
     let timer: NodeJS.Timeout;
 
-    useEffect(() => {
-        !preventStart && start(); // start on first render if preventStart is not provided
-
-        return end();
-    }, []);
+    !preventStart && start(); // start on first render if preventStart is not provided
 
     function start() {
         timer = setInterval(() => {
+            if (ref.current === null) return;
             let t = progress.current;
 
             const d1y = t * bezier[1] + t * (bezier[1] + t * (bezier[3] - bezier[1]) - t * bezier[1]);

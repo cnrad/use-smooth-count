@@ -8,7 +8,7 @@ const App = () => {
     const ref2 = React.useRef<HTMLSpanElement | null>(null);
     const ref3 = React.useRef<HTMLSpanElement | null>(null);
 
-    const count1 = useSmoothCount({ ref, target: 12927, duration: 3 });
+    const count1 = useSmoothCount({ ref: ref, target: 12927, duration: 3 });
     const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });
     const count3 = useSmoothCount({
         ref: ref3,
