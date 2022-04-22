@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useRef } from "react";
 
 /**
  * use-smooth-count
@@ -7,6 +7,7 @@ import { MutableRefObject, useEffect, useRef } from "react";
  * @param {number} duration - How long (in seconds) it takes to reach that number
  * @param {number[]} curve - An array of two points to create a cubic bezier curve (x1, y2, x2, y2)
  * @param {number} startAt - A designated number to start to count from (default 0)
+ * @param {number} preventStart - If true, only start the counter when .start() is called
  */
 
 interface SmoothCountProps {
