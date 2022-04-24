@@ -10,7 +10,8 @@
     "dependencies": {
         "react": "^18.0.0",
         "react-app-polyfill": "^1.0.0",
-        "react-dom": "^18.0.0"
+        "react-dom": "^18.0.0",
+        "use-smooth-count": "^1.0.0"
     },
     "alias": {
         "react": "../node_modules/react",

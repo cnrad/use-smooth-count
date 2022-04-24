@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as ReactDOM from "react-dom";
-import { useSmoothCount } from "../src/index";
+import { useSmoothCount } from "use-smooth-count";
 
 const App = () => {
     const ref = useRef<HTMLSpanElement | null>(null);
