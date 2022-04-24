@@ -1,12 +1,11 @@
-import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "../src/index";
 
 const App = () => {
-    const ref = React.useRef<HTMLSpanElement | null>(null);
-    const ref2 = React.useRef<HTMLSpanElement | null>(null);
-    const ref3 = React.useRef<HTMLSpanElement | null>(null);
+    const ref = useRef<HTMLSpanElement | null>(null);
+    const ref2 = useRef<HTMLSpanElement | null>(null);
+    const ref3 = useRef<HTMLSpanElement | null>(null);
 
     const count1 = useSmoothCount({ ref: ref, target: 12927, duration: 3 });
     const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });

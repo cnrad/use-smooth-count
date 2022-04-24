@@ -27,15 +27,15 @@ export function useSmoothCount({
     startAt,
     preventStart
 }: SmoothCountProps): Record<string, any> {
-    const bezier: number[] = curve ? curve : [0, 0, 1, 1];
-    const startsAt: number = startAt ?? 1;
-    const decimals: number = target.toString().split(".")[1]?.length || 0;
+    const bezier: number[] = curve ? curve : [0, 0, 1, 1]; // Nullish coalescing operator is not supported by terser yet
+    const startsAt: number = startAt ? startAt : 1;
+    const decimals: number = target.toString().split(".")[1].length || 0;
 
     let cur = startsAt;
     const progress = useRef(0);
     let timer: NodeJS.Timeout;
 
-    !preventStart && start(); // start on first render if preventStart is not provided
+    !preventStart && start();
 
     function start() {
         timer = setInterval(() => {
