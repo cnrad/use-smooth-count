@@ -1,4 +1,4 @@
-# use-smooth-count
+# ∿ use-smooth-count ∿
 
 **Easily interpolate to a provided value with a simple React hook.**
 
@@ -32,3 +32,18 @@ const Element = () => {
 The counter starts automatically unless you set `preventStart` to `true`, in which case you can manually call `count.start()` whenever you'd like.
 
 Other working examples can be found in the [example](https://github.com/cnrad/use-smooth-count/tree/master/example) folder, which is a parcel playground.
+
+## Things to Note
+
+**Certain bezier curves will not work**, because at the moment the x-values of the coordinates are not taken into account for the path. This is due to the setInterval time being linear, and me being too lazy to figure out the math involved. If you know how to solve this, feel free to pull request.
+
+**There will probably be bugs.** If you encounter one, please [create an issue](https://github.com/cnrad/use-smooth-count/issues/new) that includes the following information:
+- The issue itself
+- The expected behavior
+- The resulted behavior
+- How to reproduce (along with a direct code snippet that's producing it)
+
+**Certain logic/syntax may be subject to change.** In the rare case that I need to rework something and cannot use the current syntax, I will try to find a way to keep the old method(s) in while the new ones are also introduced, as to not break any code that uses this package. If not, I'll try to let people know before updating it :+1:
+
+## Other
+As always, feel free to star :star: this repo if you find it useful, as that helps out a ton and means a lot. Happy developing :)
