@@ -43,6 +43,8 @@ function Example() {
                     fontSize: "1rem",
                     borderRadius: "0.5rem",
                     marginBottom: "2rem",
+                    width: "90%",
+                    maxWidth: "1300px",
                 }}
             >
                 <SyntaxHighlighter language="javascript" style={atomDark}>
