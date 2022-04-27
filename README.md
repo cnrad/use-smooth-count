@@ -2,6 +2,9 @@
 
 **Easily interpolate to a provided value with a simple React hook.**
 
+[Demo](https://use-smooth-count.vercel.app)\
+[Example (the banner)](https://lanyard.cnrad.dev)
+
 ## Features
 
 -   📦 Tiny: use-smooth-count is <10kb unpacked, and even less when minified
@@ -31,7 +34,7 @@ const Element = () => {
 
 The counter starts automatically unless you set `preventStart` to `true`, in which case you can manually call `count.start()` whenever you'd like.
 
-Other working examples can be found in the [example](https://github.com/cnrad/use-smooth-count/tree/master/example) folder, which is a parcel playground.
+Other working examples can be found in the [example](https://github.com/cnrad/use-smooth-count/tree/master/example) folder.
 
 ## Things to Note
 
