@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
-import * as ReactDOM from "react-dom";
 import { useSmoothCount } from "use-smooth-count";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-const App = () => {
+function Example() {
     const ref = useRef<HTMLSpanElement | null>(null);
     const ref2 = useRef<HTMLSpanElement | null>(null);
     const ref3 = useRef<HTMLSpanElement | null>(null);
@@ -37,23 +38,26 @@ const App = () => {
         >
             <pre
                 style={{
-                    background: "#1b1b1b",
+                    background: "rgb(29, 31, 33)",
                     padding: "0.5rem",
                     fontSize: "1rem",
                     borderRadius: "0.5rem",
                     marginBottom: "2rem",
                 }}
             >
-                <code
-                    className="language-js"
-                    style={{
-                        borderRadius: "0.5rem",
-                    }}
-                >
-                    {`const count1 = useSmoothCount({ ref: ref1, target: 12927, duration: 3 });
+                <SyntaxHighlighter language="javascript" style={atomDark}>
+                    {`const count1 = useSmoothCount({ ref: ref, target: 12927, duration: 3 });
 const count2 = useSmoothCount({ ref: ref2, target: 1024, duration: 3, curve: [0, 0.75, 0.25, 1], startAt: 500 });
-const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0, 0.99, 0.01, 1] });`}
-                </code>
+const count3 = useSmoothCount({ 
+    ref: ref3, target: 76.34, duration: 3, curve: [0, 0.99, 0.01, 1], preventStart: true,
+});
+
+useEffect(() => {
+    setTimeout(() => count3.start(), 2000);
+}, []);
+
+// full code at github.com/cnrad/use-smooth-count/example/src/pages/index.tsx`}
+                </SyntaxHighlighter>
             </pre>
             <div>
                 <span style={{ fontWeight: 600 }} ref={ref} /> messages
@@ -64,12 +68,12 @@ const count3 = useSmoothCount({ ref: ref3, target: 76.34, duration: 3, curve: [0
             <div>
                 $
                 <span style={{ fontWeight: 600 }} ref={ref3}>
-                    0
+                    0.00
                 </span>{" "}
                 dollars
             </div>
         </div>
     );
-};
+}
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default Example;
