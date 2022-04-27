@@ -2,6 +2,8 @@
 
 **Easily interpolate to a provided value with a simple React hook.**
 
+`npm install use-smooth-count` or `yarn add use-smooth-count`
+
 [Demo](https://use-smooth-count.vercel.app)\
 [Example (the banner)](https://lanyard.cnrad.dev)
 
